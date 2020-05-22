@@ -1,6 +1,6 @@
 {
   "name": "html-to-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts HTML to Vue render functions, while giving the ability to swap out certain HTML nodes with Vue Components",
   "main": "dist/index.js",
   "repository": {
