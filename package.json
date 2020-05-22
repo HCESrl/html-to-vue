@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Converts HTML to Vue render functions, while giving the ability to swap out certain HTML nodes with Vue Components",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HCESrl/html-to-vue"
+  },
+  "homepage": "https://github.com/HCESrl/html-to-vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.js",
