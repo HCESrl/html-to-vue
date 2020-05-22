@@ -1,0 +1,30 @@
+{
+  "name": "html-to-vue",
+  "version": "1.0.0",
+  "description": "Converts HTML to Vue render functions, while giving the ability to swap out certain HTML nodes with Vue Components",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.js",
+    "build": "parcel build index.js --experimental-scope-hoisting --out-dir dist "
+  },
+  "keywords": [
+    "HTML",
+    "Vue",
+    "render",
+    "function",
+    "convert"
+  ],
+  "author": "mrigoni@hce.it",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "html-parse-stringify2": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-bundle-visualiser": "^1.2.0"
+  },
+  "browserslist": "> 0.25%, not dead"
+}
