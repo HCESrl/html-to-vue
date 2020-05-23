@@ -19,5 +19,5 @@ export function isAstDifferent (ast1, ast2) {
 }
 
 export function cloneDeep (obj) {
-  return Object.assign({}, obj);
+  return JSON.parse(JSON.stringify(obj))
 }
