@@ -1,4 +1,5 @@
 import { isNode } from './ast'
+import { decode } from './helpers'
 
 /**
  * rendering the ast into vue render functions
@@ -18,7 +19,7 @@ export function renderer (ast, config, createElement) {
       } else if (isNode(node)) {
         // node is either a node with children or a node or a text node
         if (node.type === 'text') {
-          return node.content// as simple as that
+          return config.textTransformer(node.content) // return text
         }
         if (node.type === 'tag') {
           const children = []

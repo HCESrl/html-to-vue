@@ -11,6 +11,7 @@ const defaultConfig = {
   },
   extraComponentsMap: {},
   renderAnyway: false,
+  textTransformer: text => text
 }
 
 export function renderHtml (html, config, createElement) {

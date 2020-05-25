@@ -47,6 +47,10 @@ Below is the default configuration, which you can override
 	   It will just put the HTML inside the container provided, as if it would be a v-html directive. 
 	   If you want to render everything as a render function anyway set this to true */
 	  renderAnyway: false,  
+	  /*
+	   You can conditionally pass a function which transform text Nodes (e.g.: to handle html entities)
+	   */
+	  textTransformer: text => text
 	}
 ```
 ### extraComponentsMap
