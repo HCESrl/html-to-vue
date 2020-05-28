@@ -4,7 +4,7 @@ This small library takes a well-formed HTML and transforms into vue render funct
 # Why has it been made
 To solve a basic problem: what if you need to, for example, substitute an anchor tag coming from your headless CMS of choice and transform it into your own `Cta.vue` element?
 
-Of course there are many ways to do that, for example you could leverage `<component :is="{ template: ... }">` power, but this requires the full Vue build (which is 30% bigger), and pull a lot of unnecessary things in. This library is just 5.11KB (~2KB gzipped).
+Of course there are many ways to do that, for example you could leverage `<component :is="{ template: ... }">` power, but this requires the full Vue build (which is 30% bigger), and pull a lot of unnecessary things in. This library is just ~4KB (~2KB gzipped).
 
 # Drawbacks
 Html needs to be well-formed. This library uses [html-parse-stringify](https://github.com/HenrikJoreteg/html-parse-stringify), which is super small, but requires to have well formed HTML.
@@ -16,16 +16,17 @@ Html needs to be well-formed. This library uses [html-parse-stringify](https://g
 ### Install it
 `npm install --dev html-to-vue` or `yarn add --dev html-to-vue`
 
-### Use it like this in a template-less vue component
+### Use it like this in a functional vue component
 ```js
     import { renderHtml } from 'vue-to-html';
     export default {
+		functional: true
 	    data: () => ({
 			config: { ... },
 			rawHtml: '<div> Hello world! </div>'
 		}),
-		render (createElement) {
-			return renderHtml(this.rawHtml, this.config, createElement)
+		render (h, context) {
+			return renderHtml(this.rawHtml, this.config, h, context)
 		}
 	}
 ```
@@ -35,18 +36,10 @@ Below is the default configuration, which you can override
 	{  
 	  // This object sets up the container of the HTML that gets rendered
 	  container: {
-	    type: 'div',  
-		config: {  // this config is compliant with with Vue's createElement config
-		  class: 'rendered-html'  
-		}  
+	    type: 'div'
 	  },  
 	  // This object contains Vue components that substitutes HTML node (look at next section)
-	  extraComponentsMap: {},  
-	  /* By default, if there are no extraComponents in the HTML to substitute,
-	   html-to-vue will not use render functions.
-	   It will just put the HTML inside the container provided, as if it would be a v-html directive. 
-	   If you want to render everything as a render function anyway set this to true */
-	  renderAnyway: false,  
+	  extraComponentsMap: {}, 
 	  /*
 	   You can conditionally pass a function which transform text Nodes (e.g.: to handle html entities)
 	   */
