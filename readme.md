@@ -20,7 +20,7 @@ Html needs to be well-formed. This library uses [html-parse-stringify](https://g
 ```js
     import { renderHtml } from 'vue-to-html';
     export default {
-		functional: true
+		functional: true,
 	    data: () => ({
 			config: { ... },
 			rawHtml: '<div> Hello world! </div>'
@@ -56,7 +56,6 @@ For example, let's say we need to transform each anchor with `class="btn"` into 
 **Button.vue**:
 ```html
 	<template>
-				const text = children[0]; // let's pretend anchor in our case has only a text-node child
 		<div class="button">
 			<slot/>
 		</div>
