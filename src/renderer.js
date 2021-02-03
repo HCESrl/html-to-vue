@@ -1,4 +1,5 @@
 import { isNode } from './ast'
+import { getOptionsFromNode } from "./helpers";
 
 /**
  * rendering the ast into vue render functions
@@ -38,9 +39,7 @@ export function renderer (ast, config, createElement, context) {
           // else, create normal html element
           return h(
             node.name,
-            {
-              attrs: node.attrs,
-            },
+            getOptionsFromNode(node),
             [...children]
           )
         }

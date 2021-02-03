@@ -78,16 +78,21 @@ For example, let's say we need to transform each anchor with `class="btn"` into 
 				)
 			},
 			renderer(node, children, createElement) {
+			    const options = getOptionsFromNode(node)
 				return createElement(
 					Button,
 					{
-						class: node.attrs?.class, // if we want to pass the class of the node
-						attrs: {
-							target: node.attrs?.target // target
-						}
+						class: options.class, // if we want to pass the class of the node
+						attrs: options.attrs, // you can omit these three lines
+                        style: options.style // and use the spread operator like so:
+                        // ...options
 					},
 					[...children] // parsed children, in our case it will probably be just a text child
 			}
 		} 
 	}
 ```
+
+### Helper functions
+ - `getOptionsFromNode(node)`:
+    This function takes in a node and spits out an object that matches vue-compliant options from the node attributes

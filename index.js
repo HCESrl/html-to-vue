@@ -17,3 +17,5 @@ export function renderHtml (html, config, createElement, context) {
 
   return renderer(_rectifiedAst, _c, createElement, context)
 }
+
+export { getOptionsFromNode } from "./src/helpers"
