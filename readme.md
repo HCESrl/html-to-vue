@@ -77,15 +77,21 @@ For example, let's say we need to transform each anchor with `class="btn"` into 
 					node.attrs?.class?.match(/btn\s?/) // has btn class
 				)
 			},
-			renderer(node, children, createElement) {
+			renderer(node, children, createElement, context) {
 			    const options = getOptionsFromNode(node)
 				return createElement(
 					Button,
 					{
 						class: options.class, // if we want to pass the class of the node
 						attrs: options.attrs, // you can omit these three lines
-                        style: options.style // and use the spread operator like so:
-                        // ...options
+						style: options.style // and use the spread operator like so:
+						on: {
+							click: () => {
+								const emit_event = context.listeners[eventName];
+								emit_event("Hello World!Is this the message we excpected? :/");
+							}
+						}
+						// ...options
 					},
 					[...children] // parsed children, in our case it will probably be just a text child
 			}
