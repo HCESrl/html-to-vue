@@ -33,7 +33,8 @@ export function renderer (ast, config, createElement, context) {
               this,
               node,
               children,
-              h
+              h,
+              context
             )
           }
           // else, create normal html element

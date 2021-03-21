@@ -52,7 +52,7 @@ export function generateAST (html) {
  */
 export function rectifyAST (ast, config) {
   const _ast = cloneDeep(ast)
-  const keys = Object.keys(config.extraComponentsMap)
+  const keys = config.extraComponentsMap ? Object.keys(config.extraComponentsMap) : [];
   _visitAST(_ast, (node, parent, key, index) => {
     // checking whether the AST has some components that has to become Vue Components
     for (let i = 0; i < keys.length; i++) {
