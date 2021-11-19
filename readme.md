@@ -23,15 +23,15 @@ Html needs to be well-formed. This library uses [html-parse-stringify](https://g
 ### Use it like this in a functional vue component
 
 ```js
-    import { renderHtml } from 'vue-to-html';
+    import { renderHtml } from 'html-to-vue';
+	const conf = {
+		config: { ... },
+		rawHtml: '<div> Hello world! </div>'
+	}
     export default {
 		functional: true,
-	    data: () => ({
-			config: { ... },
-			rawHtml: '<div> Hello world! </div>'
-		}),
 		render (h, context) {
-			return renderHtml(this.rawHtml, this.config, h, context)
+			return renderHtml(conf.rawHtml, conf.config, h, context)
 		}
 	}
 ```
